@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+// 1. 매개 변수가 없는 함수 표현식을 정의하고 currentTime 변수에 할당
+const currentTime = function(){
+    const now = new Date();
+    return now.toLocaleDateString();
+}
+//currentTime 함수 호출 (현재 날짜를 표현)
+const time = currentTime();
+console.log(time);
+
+//2. 함수 표현식으로 덧샘 함수를 정의하고 add 변수에 할당 
+const add = function(x,y){
+    return x + y;
+}
+//매개 변수가 있는 함수 표현식에 사용
+print(add(10,10));
+
+//변수 add를 사용하여 덧샘 함수 호출  (3+5)  = 8이 나온다
+const result = add(3,5);
+console.log(result);
+</script>
+<body>
+    
+</body>
+</html>

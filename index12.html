@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "myDiv" >아이디로 접근</div>
+    <div class ="myClass">클래스 이름으로 접근 1</div>
+    <div class ="myClass">클래스 이름으로 접근 2</div>
+    <p>태그이름으로 접근합니다1</p>
+    <p>태그이름으로 접근합니다2</p>
+
+    <script>
+        let byId = document.getElementById("myDiv");
+        console.log(byId.textContent);
+
+        let byClassName = document.getElementsByClassName("myClass");
+        console,log(byClassName[0].textContent);
+
+        let byTagName = document.getElementsByTagName("p");
+        console.log(byTagName[1].textContent);
+
+        let byQuerySelector = document.querySelector(".myClass");
+        console.log(byQuerySelector.textContent);
+
+        let byQuerySelectorAll = document.querySelectorAll(".myClass");
+        console.log(byQuerySelectorAll);
+        console.log(byQuerySelectorAll[1].textContent);
+
+    </script>
+</body>
+</html>

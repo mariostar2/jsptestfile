@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var n1 = 10;
+    var n2; 
+    var n3 = null;
+    console.log(n1);
+    console.log(n2);
+    console.log(n3);
+
+   // var 키워드를 사용하면 호이스팅(Hoisting) 동작이 발생한다. 
+   // 1. 변수 호이스팅(Variable Hoisting)
+   // 2. 함수 호이스팅(Function Hoisting) 
+
+   /////////////////////////// - 시나리오 1 
+   console.log("hValue - 1 : " + hValue); // 값 할당 부분은 올라가지 않음 !  hValue - undefined, 초기화(값 할당) 부분은 그 자리에 남아 있습니다.
+
+   // 1. 변수 호이스팅
+   var hValue = 10; // 변수에 이름만 해당 스코프의 맨 위로 끌어올려집니다  
+   console.log("hValue - 2 : " + hValue);
+
+   console.log("--------------------------");
+   
+   //////////////////////////// - 시나리오 2 
+   sayHello(); // 호이스팅 됨 - 함수 선언문은 해당 스코프의 맨 위로 올라 갑니다. 
+   
+
+   // 2. 함수 호이스팅 ()
+   function sayHello() {
+        console.log("Hello, World!");
+   } 
+
+   //3 . 함수 표현식 - 함수 표현식은 호이스팅 되지 않습니다
+   var sayHi = function(){
+    console.log("Hi---------------");
+   }
+   
+</script>
+<body>
+
+
+</body>
+</html>

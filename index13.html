@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex--cpmtainer{
+            
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class ="flex--container">
+        <img src = "image/image1.png" alt = "img1">
+        <button onclick="button">이미지 토글</button>
+        
+    </div>
+    <script>
+        let imageNode = document.getElementById("myImage");
+        if(imageNode.src.includes("image1.png")){
+            imageNode.src = "image/image2.png";
+        }else{
+            imageNode.src = "image/image1.png";
+        }
+
+    </script>
+</body>
+</html>
