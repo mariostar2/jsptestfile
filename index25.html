@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="fetchTodo(2)">통신 요청</button>
+    <script>
+        async function fetchTodo(id){
+            let promiseData = await fetch("https://jsonplaceholder.typicode.com/todos/" +id);
+            console.log("promiseData:" + promiseData);
+            let todo = await promiseData.json();
+            console.log(todo);
+        }   
+
+        function fetchTodo2(id){
+            fetch("https://jsonplaceholder.typicode.com/todos/" + id)
+            .then(promiseData =>{
+                console.log("pData:" +promiseData);
+                //한번에 json 형식으로 던지는 return 
+                return promiseData.json();
+            })     
+            .then(todo =>{
+                //파싱된 Todo 정보를 콘솔에 출력
+                console.log(todo);
+            })       
+            .catch(error =>{
+               //오류 발생시 콘솔에 오류 정보 출력
+               console.log(error); 
+            });
+        }
+    </script>
+</body>
+</html>

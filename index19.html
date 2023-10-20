@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+				margin: 16px;
+				display: flex;
+				justify-content: center;
+			}
+        ul{
+            list-style-type: none;
+            padding: 0;
+        }
+        li{
+            background-color: #f9f9f9;
+            margin: 8px 0;
+            padding: 8px;
+            border: 3px solid #cda;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button{
+            width: 100px;
+            height:100px;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>EventListener를 사용한 crud와 토글</h2>
+        <button id ="addBtn">아이템을 추가</button>
+        <button id ="toggleBtn">리스트 토글</button>
+        <ul id = "myList">
+            <li>
+                아이템1
+                <button class ="editBtn">수정하기</button>
+                <button class ="deleteBtn">삭제하기</button>
+            </li>
+        </ul>
+    </div>
+    <script>
+      let count =1;
+      //아이템 추가기능
+      document.getElementById("addBtn").addEventListener("click", function () {
+				count++;
+				
+				let newItem = document.createElement("li");				
+				newItem.innerHTML = `아이템 ${count} <button class="editBtn">수정하기</button><button class="deleteBtn">삭제하기</button>`;				
+				document.getElementById("myList").append(newItem);
+			});
+        //토글 기능(리스트)
+        document.getElementById("toggleBtn").addEventListener("click",function(){
+            let list = document.getElementById("myList");
+            list.style.display = list.style.display === "none" ?"" : "none";
+        });
+
+        //아이템 수정 기능
+        document.getElementById("myList").addEventListener("click", function (e) {				
+				if (e.target.className === "editBtn") {
+					let parentLi = e.target.parentNode;
+					let newText = prompt("새로운 텍스트를 입력하세요", parentLi.firstChild.nodeValue.trim());
+					if (newText !== null) parentLi.firstChild.nodeValue = newText;
+				}
+			});
+        //아이템 삭제 기능
+        document.getElementById("myList").addEventListener("click", function (e){
+            if(e.target.className === "deleteBtn") {
+                if(confirm("정말 삭제하시겠습니까?")){
+                    e.target.parentNode.remove();
+                }
+            }
+        })
+         
+    </script>
+</body>
+</html>
